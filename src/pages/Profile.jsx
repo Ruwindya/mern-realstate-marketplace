@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
 import { app } from '../firebase'
 import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserStart, signOutUserFailure, signOutUserSuccess } from "../redux/user/userSlice"
+import { Link } from "react-router-dom"
 
 export default function Profile() {
 
@@ -167,8 +168,11 @@ export default function Profile() {
           onChange={handleChange}
         />
 
-        <button disabled={loading} className="bg-green-500 text-white text-center uppercase border p-3 rounded-lg
+        <button disabled={loading} className="bg-green-600 text-white text-center uppercase border p-3 rounded-lg
         font-bold hover:opacity-75 disabled:opacity-50">{loading ? 'Loading...' : 'Update'}</button>
+
+        <Link to={"/create-listing"} className="bg-slate-700 text-white text-center uppercase border p-3 rounded-lg
+        font-bold hover:opacity-75 disabled:opacity-50">Create Listing</Link>
 
       </form>
       <div className="flex justify-between mt-5">
